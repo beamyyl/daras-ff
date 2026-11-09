@@ -207,8 +207,8 @@ static const FFlogo D[] = {
         .names = { "Daras" },
         .lines = FASTFETCH_DATATEXT_LOGO_DARAS,
         .colors = {
-            "\033[34",
-            "\033[38;5;25",
+            FF_COLOR_FG_CYAN,
+            FF_COLOR_FG_BLUE,
         },
         .colorKeys = FF_COLOR_FG_BLUE,
         .colorTitle = FF_COLOR_FG_DEFAULT,
@@ -221,8 +221,7 @@ static const FFlogo D[] = {
         .type = FF_LOGO_LINE_TYPE_SMALL_BIT,
         .lines = FASTFETCH_DATATEXT_LOGO_DARAS_SMALL,
         .colors = {
-            "\033[34",
-            "\033[38;5;25",
+            FF_COLOR_FG_BLUE,
         },
         .colorKeys = FF_COLOR_FG_BLUE,
         .colorTitle = FF_COLOR_FG_DEFAULT,
