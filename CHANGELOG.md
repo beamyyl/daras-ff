@@ -1,10 +1,18 @@
 # Unreleased
 
+Features:
+* Added glob and environment variable expansion to logo sources on Windows. `%VAR%`, `$VAR` and `${VAR}` are supported, and a glob matching several files picks one randomly. (#2718, Logo, Windows)
+* Added opt-in drive health detection for NVMe disks, via udisks2 on Linux (no root required), NVMe SMART on macOS and the NVMe health log on Windows. (#2726, PhysicalDisk, Linux / macOS / Windows)
+    * Enable it with `"health": true`. The default output appends `Health <100 - percentage used>%` and any critical warnings.
+    * New format args: `{health}`, `{percent-used}`, `{available-spare}` and `{critical-warning}`.
+    * ATA disks report the SMART `failing` status as a critical warning (SAS and RAID disks stay unknown). On Windows and macOS, checking them may wake a sleeping HDD.
+
 Changes:
 * Improved PCI GPU name resolution by checking udev's hardware database and the NVIDIA driver's procfs before falling back to pci.ids. (GPU, Linux)
 
 Bugfixes:
 * Fixed libc version detection on FreeBSD without binutils installed, and on DragonFly BSD. (Libc, FreeBSD / DragonFly)
+* Fixed CPU cache detection failing entirely when any CPU is offline. (#2736, CPUCache, Linux)
 
 # 2.71.0
 
